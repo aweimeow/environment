@@ -1,0 +1,28 @@
+---
+
+apt_keys:
+  docker: 
+    id: 0EBFCD88
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+apt_repository: 
+  docker: deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable
+  git: ppa:git-core/ppa
+
+apt_packages:
+  - python-pip
+  - python3.6
+  - python3-pip
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - vim
+  - tmux
+  - tree
+  - zsh
+  - git
+  - docker-ce
+
+pip_packages:
+  - virtualenv

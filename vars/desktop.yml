@@ -1,0 +1,15 @@
+---
+
+
+apt_desktop_keys:
+  vscode: 
+    id: BE1229CF
+    url: https://packages.microsoft.com/keys/microsoft.asc
+
+apt_desktop_repository:
+  vscode: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+  shutter: ppa:shutter/ppa
+
+apt_desktop_packages:
+  - shutter
+  - vscode

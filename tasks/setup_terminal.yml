@@ -1,0 +1,25 @@
+---
+
+- name: Oh-My-Zsh installation
+  command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  tags: terminal
+
+- name: Oh-My-Zsh Config File Copy
+  copy:
+    src: configs/.zshrc
+    dest: ~/.zshrc
+
+- name: Oh-My-Zsh Custom Theme Copy
+  copy:
+    src: configs/aweimeow.zsh-theme
+    dest: ~/.oh-my-zsh/themes/
+
+- name: Terminal plugin clone
+  git:
+    repo: "{{ terminal_plugin.url }}"
+    dest: "{{ terminal_plugin.dest }}"
+  tags: terminal
+
+- name: Terminal plugin install
+  command: "{{ terminal_plugin.setup }}"
+  tags: terminal

@@ -1,0 +1,23 @@
+---
+
+# Terminal Plugin using git server as source
+terminal_plugin:
+  powerline-fonts:
+    url: https://github.com/powerline/fonts
+    dest: /tmp/fonts
+    setup: sh /tmp/fonts/install.sh
+
+  fzf:
+    url: https://github.com/junegunn/fzf.git
+    dest: ~/.fzf
+    setup: ~/.fzf/install
+  
+  k: 
+    url: https://github.com/supercrabtree/k
+    dest: ~/.oh-my-zsh/custom/plugins/k
+    setup: echo "Configuration is already in .zshrc"
+
+  zsh-syntax-highlighting:
+    url: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    setup: echo "Configuration is already in .zshrc"

@@ -1,0 +1,14 @@
+#! /usr/bin/env ansible-playbook
+
+---
+- name: Setup Development Environment
+  hosts: local
+
+  vars_files:
+    - vars/server.yml
+    - vars/desktop.yml
+    - vars/terminal.yml
+
+  tasks:
+    - name: Run setup.yml
+      include: tasks/setup.yml

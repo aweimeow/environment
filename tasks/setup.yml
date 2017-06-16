@@ -1,0 +1,22 @@
+---
+
+# Server
+- name: Include setup_basic.yml (Server for basic)
+  include: tasks/setup_basic.yml
+  tags: 
+    - server
+  when: ansible_pkg_mgr == "apt"
+
+- name: Include setup_basic.yml (Terminal Plugin)
+  include: tasks/setup_terminal.yml
+  tags:
+    - server
+    - terminal
+
+# Desktop
+- name: Include setup_desktop.yml (Desktop version)
+  include: tasks/setup_desktop.yml
+  tags:
+    - desktop
+
+  when: ansible_pkg_mgr == "apt"

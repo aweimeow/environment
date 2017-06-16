@@ -1,0 +1,32 @@
+---
+
+- name: Add apt repository's keys
+  become: true
+  apt-key: 
+    id: "{{ apt_keys.value.id }}"
+    url: "{{ apt_keys.value.url }}"
+    state: present
+
+- name: Add apt repositories
+  become: true
+  apt_repository: repo={{ apt_repository.value }} state=present
+
+- name: Install all apt packages
+  become: true
+  apt: name={{ apt_packages }} state=present
+  update_cache: yes
+
+- name: Upgrade pip
+  become: true
+  command: pip install --upgrade pip
+  tags: python
+
+- name: Upgrade pip3
+  become: true
+  command: pip3 install --upgrade pip
+  tags: python
+
+- name: Install all pip packages
+  become: true
+  pip: name={{ pip_packages }} state=present
+  tags: python
