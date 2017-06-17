@@ -14,5 +14,7 @@
 
 - name: Install all apt packages (Desktop ver.)
   become: true
-  apt: name={{ apt_desktop_packages }} state=present
-  update_cache: yes
+  apt: 
+    name: "{{ apt_desktop_packages }}"
+    state: present
+    update_cache: yes

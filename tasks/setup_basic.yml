@@ -1,8 +1,9 @@
 ---
 
+
 - name: Add apt repository's keys
   become: true
-  apt-key: 
+  apt_key: 
     id: "{{ apt_keys.value.id }}"
     url: "{{ apt_keys.value.url }}"
     state: present
@@ -13,8 +14,10 @@
 
 - name: Install all apt packages
   become: true
-  apt: name={{ apt_packages }} state=present
-  update_cache: yes
+  apt:
+    name: "{{ apt_packages }}"
+    state: present
+    update_cache: yes
 
 - name: Upgrade pip
   become: true
