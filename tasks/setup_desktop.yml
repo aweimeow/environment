@@ -4,13 +4,15 @@
   become: true
   apt_key: 
     apt-key: 
-    id: "{{ apt_desktop_keys.value.id }}"
-    url: "{{ apt_desktop_keys.value.url }}"
+    id: "{{ item.value.id }}"
+    url: "{{ item.value.url }}"
     state: present
+  with_dict: "{{ apt_desktop_keys }}"
 
 - name: Add apt repositories (Desktop ver.)
   become: true
-  apt_repository: repo={{ apt_desktop_repository.value }} state=present
+  apt_repository: repo={{ item.value }} state=present
+  with_dict: "{{ apt_desktop_repository }}"
 
 - name: Install all apt packages (Desktop ver.)
   become: true
