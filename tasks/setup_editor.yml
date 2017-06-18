@@ -1,22 +1,21 @@
 ---
 
-- name: Install VimPlug for Vin PlugIn management
-  command: curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+- name: Install VimPlug for Vim PlugIn management
+  command: |
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  tag: editor
+  tags: editor
 
 - name: Clone Vimrc
   git:
     repo: https://github.com/aweimeow/aweimeow.vim
-    dest: ~
-  tag: editor
+    dest: /tmp/aweimeow.vim
+  tags: editor
 
 - name: Install .vimrc
-  copy:
-    src: ~/aweimeow.vim/init.vim
-    dest: ~/.vimrc
-  tag: editor
+  command: cp /tmp/aweimeow.vim/init.vim ~/.vimrc
+  tags: editor
 
 - name: Install Vim Plugin
-  command: vim +:PlugInstall
-  tag: editor
+  command: vim +PluginInstall +qall
+  tags: editor

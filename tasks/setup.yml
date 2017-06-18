@@ -13,6 +13,12 @@
     - server
     - terminal
 
+- name: Include setup_editor.yml (Editor Plugin, for vim)
+  include: tasks/setup_editor.yml
+  tags:
+    - server
+    - editor
+
 # Desktop
 - name: Include setup_desktop.yml (Desktop version)
   include: tasks/setup_desktop.yml

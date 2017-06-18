@@ -1,7 +1,12 @@
 ---
 
+
+- name: Oh-My-Zsh script download
+  command: curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o /tmp/omz.sh
+
 - name: Oh-My-Zsh installation
-  command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  become: true
+  command: sh /tmp/omz.sh
   tags: terminal
 
 - name: Oh-My-Zsh Config File Copy
@@ -16,10 +21,12 @@
 
 - name: Terminal plugin clone
   git:
-    repo: "{{ terminal_plugin.url }}"
-    dest: "{{ terminal_plugin.dest }}"
+    repo: "{{ item.value.url }}"
+    dest: "{{ item.value.dest }}"
+  with_dict: "{{ terminal_plugin }}"
   tags: terminal
 
 - name: Terminal plugin install
-  command: "{{ terminal_plugin.setup }}"
+  command: "{{ item.value.setup }}"
+  with_dict: "{{ terminal_plugin }}"
   tags: terminal
