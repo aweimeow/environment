@@ -3,6 +3,7 @@
 apt_keys:
   docker: 
     id: 0EBFCD88
+    name: docker.gpg
     url: https://download.docker.com/linux/ubuntu/gpg
 
 apt_repository: 

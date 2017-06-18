@@ -7,11 +7,15 @@
     name: "{{ apt_pre_packages }}"
     state: present
 
+- name: Download apt keys
+  command: "curl -fsSL {{ item.value.url }} -o /tmp/{{ item.value.name }}"
+  with_dict: "{{ apt_keys }}"
+
 - name: Add apt repository's keys
   become: true
   apt_key: 
     id: "{{ item.value.id }}"
-    url: "{{ item.value.url }}"
+    file: "/tmp/{{ item.value.name }}"
     state: present
   with_dict: "{{ apt_keys }}"
 

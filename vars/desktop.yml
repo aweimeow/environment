@@ -4,6 +4,7 @@
 apt_desktop_keys:
   vscode: 
     id: BE1229CF
+    name: microsoft.asc
     url: https://packages.microsoft.com/keys/microsoft.asc
 
 apt_desktop_repository:
