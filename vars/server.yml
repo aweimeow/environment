@@ -9,14 +9,16 @@ apt_repository:
   docker: deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable
   git: ppa:git-core/ppa
 
-apt_packages:
-  - python-pip
-  - python3.6
-  - python3-pip
+apt_pre_packages:
   - apt-transport-https
   - ca-certificates
   - curl
   - software-properties-common
+
+apt_packages:
+  - python-pip
+  - python3.6
+  - python3-pip
   - vim
   - tmux
   - tree

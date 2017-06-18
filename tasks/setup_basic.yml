@@ -1,6 +1,12 @@
 ---
 
 
+- name: Install pre-requirement apt packages
+  become: true
+  apt:
+    name: "{{ apt_pre_packages }}"
+    state: present
+
 - name: Add apt repository's keys
   become: true
   apt_key: 
@@ -19,7 +25,6 @@
   apt:
     name: "{{ apt_packages }}"
     state: present
-    update_cache: yes
 
 - name: Upgrade pip
   become: true
