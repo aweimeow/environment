@@ -8,6 +8,7 @@ apt_keys:
 
 apt_repository: 
   docker: deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable
+  python: ppa:jonathonf/python-3.6
   git: ppa:git-core/ppa
 
 apt_pre_packages:
