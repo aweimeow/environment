@@ -17,5 +17,5 @@
   tags: editor
 
 - name: Install Vim Plugin
-  command: vim +PluginInstall +qall
+  command: vim +PlugInstall +qall
   tags: editor

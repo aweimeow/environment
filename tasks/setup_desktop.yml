@@ -3,7 +3,6 @@
 - name: Add apt key (Desktop ver.)
   become: true
   apt_key: 
-    apt-key: 
     id: "{{ item.value.id }}"
     url: "{{ item.value.url }}"
     state: present
