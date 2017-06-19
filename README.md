@@ -26,7 +26,7 @@ If there is many slave machines going to install, you can write in **hosts** fil
 Take a look at `hosts` or following is an example configuration.
 
 ```
-# 
+# global vars, for all target machine
 [all:vars]
 ansible_connection=ssh
 ansible_ssh_user=<your_username>
