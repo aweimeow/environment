@@ -22,7 +22,7 @@ cd environment
 
 #### Configuration File
 
-If there is many slave machines going to install, you can write in **hosts** file. 
+If there are many slave machines going to install, you can write in **hosts** file. 
 Take a look at `hosts` or following is an example configuration.
 
 ```
@@ -39,7 +39,7 @@ ansible_ssh_pass=<your_password>
 
 #### Execute all tasks Ansible Playbook
 
-Slave machine not include localhost must be access by private-key or password.
+Slave machine (not include localhost) must access by private-key or password.
 
 ```bash
 ansible-playbook main.yml -i hosts
@@ -49,10 +49,10 @@ ansible-playbook main.yml -i hosts
 
 We have 4 tags for different proposals: `server`, `terminal`, `editor`, `desktop`. 
 
-* `server` tag: Target machine is a server, without desktop environment, install `setup_basic.yml`, `setup_terminal.yml` and `setup_editor.yml`.
-* `terminal` tag: Only install `setup_terminal.yml`, use it when you only need terminal customization.
-* `editor` tag:  Only install `setup_editor.yml`, use it when you only need editor(vim) customization.
-* `desktop` tag:  Only install `setup_desktop.yml`, if you want to install environment in brand new Ubuntu Desktop, do not specific any tag.
+* `server` tag: Target machine is a server, without desktop environment, install **setup_basic.yml**, **setup_terminal.yml** and **setup_editor.yml**.
+* `terminal` tag: Only install **setup_terminal.yml**, use it when you only need terminal customization.
+* `editor` tag:  Only install **setup_editor.yml**, use it when you only need editor(vim) customization.
+* `desktop` tag:  Only install **setup_desktop.yml**, if you want to install environment in brand new Ubuntu Desktop, do not specific any tag.
 
 ```bash
 # When you specific 1 tag
@@ -74,7 +74,7 @@ In this project, I split develop enviroment installation to 3 part.
 
 Besides, I use Ubuntu 14.04.5, and package manager on Ubuntu is `apt`, 
 if you want modify to fit other operating system, 
-you can found more info in [Packaging Modules - Ansible](http://docs.ansible.com/ansible/list_of_packaging_modules.html#os).
+you can find more info in [Packaging Modules - Ansible](http://docs.ansible.com/ansible/list_of_packaging_modules.html#os).
 
 ## License
 
