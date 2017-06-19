@@ -1,0 +1,9 @@
+# [all:vars]
+# ansible_connection=ssh
+# ansible_ssh_user=user
+# ansible_ssh_pass=pass
+
+[targets]
+localhost       ansible_connection=local
+# 10.0.0.1      ansible_connection=ssh        ansible_user=user1
+# 10.0.0.2      ansible_connection=ssh        ansible_user=user2
