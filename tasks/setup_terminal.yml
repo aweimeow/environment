@@ -1,6 +1,16 @@
 ---
 
 
+- name: Locale generate
+  become: true
+  command: locale-gen zh_TW.UTF-8
+
+- name: Setting Default Locale
+  become: true
+  command: |
+    echo 'LANG="zh_TW.UTF-8"' >> /etc/default/locale;
+    export LANG=zh_TW.UTF-8;
+
 - name: Oh-My-Zsh script download
   command: curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o /tmp/omz.sh
 
@@ -30,3 +40,7 @@
   command: "{{ item.value.setup }}"
   with_dict: "{{ terminal_plugin }}"
   tags: terminal
+
+- name: Change Default Shell
+  become: true
+  command: "chsh -s /bin/zsh {{ ansible_ssh_user }}"
